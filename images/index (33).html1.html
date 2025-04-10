@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Landing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ff6347;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .nav-link:hover {
+            color: #ff6347;
+        }
+
+        .btn {
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e5533d;
+            transform: scale(1.05);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #FF9A00, #FF6347);
+            border-radius: 50% 50% 0 0;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 35px;
+            height: 20px;
+            border: 3px solid white;
+            border-bottom: none;
+            border-radius: 50%;
+            top: 12px;
+            left: 8px;
+        }
+
+        .bubble {
+            position: absolute;
+            background: linear-gradient(45deg, #FF9A00, #FF6347);
+            border-radius: 50%;
+        }
+
+        .bubble1 {
+            width: 10px;
+            height: 10px;
+            top: 5px;
+            left: 35px;
+        }
+
+        .bubble2 {
+            width: 6px;
+            height: 6px;
+            top: -3px;
+            left: 42px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2B2D33;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans">
+
+    <header class="p-4 flex justify-between items-center shadow-md relative">
+        <div class="logo">
+            <div class="logo-icon">
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+            </div>
+            <span class="logo-text">restaurant</span>
+        </div>
+        <button id="menu-toggle" class="md:hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <nav id="mobile-menu"
+            class="hidden absolute top-full left-0 w-full bg-white shadow-md md:static md:flex md:items-center md:space-x-4 md:w-auto">
+            <a href="#" class="nav-link block px-4 py-2 border-b md:border-none">Home</a>
+            <a href="#" class="nav-link block px-4 py-2 border-b md:border-none">Menu</a>
+            <a href="#" class="nav-link block px-4 py-2 border-b md:border-none">Contact</a>
+        </nav>
+    </header>
+
+    <section class="relative p-6 text-center fade-in">
+        <!-- Изображение за текстом -->
+        <img src="images/73c7b93f-d735-413e-8f6e-bf25926d4eba.jpg" alt="Chef"
+            class="absolute inset-0 w-full h-full object-cover z-10 opacity-90" />
+
+        <!-- Затемнённая подложка (если нужно затемнить изображение) -->
+        <div class="absolute inset-0 bg-white bg-opacity-70 z-20"></div>
+
+        <!-- Текст поверх изображения -->
+        <div class="relative z-30">
+            <h2 class="text-2xl font-bold mb-2">
+                We provide the <br><span class="text-red-500">best food for you</span>
+            </h2>
+            <p class="mb-4 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="btn bg-red-500 text-white px-4 py-2 rounded">Book a Table</button>
+        </div>
+    </section>
+
+    <section class="p-6 fade-in">
+        <h3 class="text-xl font-semibold mb-4">Our Special Dishes</h3>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div class="bg-gray-100 p-4 rounded shadow fade-in">
+                <img src="XXL_height.webp" alt="Lumpia with Sauce" class="rounded mb-2" />
+                <h4 class="font-semibold">Lumpia with Sauce</h4>
+                <p>$12</p>
+                <button class="btn bg-red-500 text-white px-4 py-2 rounded mt-2">Order Now</button>
+            </div>
+            <div class="bg-gray-100 p-4 rounded shadow fade-in">
+                <img src="WhatsApp Image 2025-04-06 at 21.01.15.jpeg" alt="Fish and Veggie" class="rounded mb-2" />
+                <h4 class="font-semibold">Fish and Veggie</h4>
+                <p>$12</p>
+                <button class="btn bg-red-500 text-white px-4 py-2 rounded mt-2">Order Now</button>
+            </div>
+            <div class="bg-gray-100 p-4 rounded shadow fade-in">
+                <img src="WhatsApp Image 2025-04-06 at 21.17.59.jpeg" alt="Tofu Chili" class="rounded mb-2" />
+                <h4 class="font-semibold">Tofu Chili</h4>
+                <p>$12</p>
+                <button class="btn bg-red-500 text-white px-4 py-2 rounded mt-2">Order Now</button>
+            </div>
+            <div class="bg-gray-100 p-4 rounded shadow fade-in">
+                <img src="412523de-3cd5-4904-9c1c-06b0ab7683ab.jpg" alt="Egg and Cucumber" class="rounded mb-2" />
+                <h4 class="font-semibold">Egg and Cucumber</h4>
+                <p>$12</p>
+                <button class="btn bg-red-500 text-white px-4 py-2 rounded mt-2">Order Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-6 bg-gray-50 fade-in">
+        <h3 class="text-xl font-semibold mb-4">Our Happy Customers</h3>
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide flex items-center gap-4">
+                    <img src="00e36648-58c7-422d-99bd-54fe3d425c00.jpg" alt="Ama Ampomah" class="rounded-full w-16 h-16 object-cover" />
+                    <div>
+                        <p class="italic text-sm">"Lorem ipsum dolor sit amet consectetur."</p>
+                        <p class="text-sm font-semibold mt-1">— Ama Ampomah</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide flex items-center gap-4">
+                    <img src="WhatsApp Image 2025-04-06 at 22.24.19.jpeg" alt="Kweku Annan" class="rounded-full w-16 h-16 object-cover" />
+                    <div>
+                        <p class="italic text-sm">"Leo in cursus enim magnis ante."</p>
+                        <p class="text-sm font-semibold mt-1">— Kweku Annan</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide flex items-center gap-4">
+                    <img src="images/45b8aebc9a2097f598cd5a1bac1687b8.jpg" alt="Lara Jack" class="rounded-full w-16 h-16 object-cover" />
+                    <div>
+                        <p class="italic text-sm">"Vivamus luctus urna sed urna ultricies ac tempor dui sagittis."</p>
+                        <p class="text-sm font-semibold mt-1">— Lara Jack</p>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide flex items-center gap-4">
+                    <img src="images/7c3326f192cc570163216e8cb6bdc5d4.jpg" alt="Jack Griffo" class="rounded-full w-16 h-16 object-cover" />
+                    <div>
+                        <p class="italic text-sm">"In condimentum facilisis porta."</p>
+                        <p class="text-sm font-semibold mt-1">— Jack Griffo</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+    </section>
+
+    <section class="p-6 text-center fade-in">
+        <h3 class="text-xl font-semibold mb-2">Get Our Promo Code</h3>
+        <p class="mb-4 text-gray-600">By Subscribing To our Newsletter</p>
+        <input type="email" placeholder="Enter your email"
+               class="border px-4 py-2 w-full mb-2 rounded" />
+        <button class="bg-red-500 text-white px-4 py-2 rounded">Subscribe</button>
+      </section>
+      <style>
+        /* Smooth hover animation for links and icons */
+        .hover-animate {
+          transition: transform 0.3s ease, color 0.3s ease;
+        }
+    
+        .hover-animate:hover {
+          transform: scale(1.05);
+          color: #e3342f;
+        }
+    
+        /* Fade-in animation for blocks */
+        .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+    
+        .fade-in.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      </style>
+    </head>
+    <body class="bg-gray-50 text-gray-800 font-sans">
+    
+      <footer class="bg-white py-8 border-t fade-in">
+        <div class="container mx-auto px-6 lg:px-20">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+              <div class="flex items-center mb-4">
+                <img src="logo.svg" alt="Restaurant Logo" class="h-8 w-8 hover-animate">
+             
+                <h2 class="text-lg font-bold ml-2">restaurant</h2>
+               </div>
+              <p class="text-gray-600 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                <a href="#" class="text-blue-500 underline hover-animate">Learn more</a>
+              </p>
+            </div>
+    
+            <!-- Navigation Section -->
+            <div>
+              <h3 class="text-sm font-bold uppercase mb-4">Navigation</h3>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li><a href="#" class="hover-animate">Menu</a></li>
+                <li><a href="#" class="hover-animate">About us</a></li>
+                <li><a href="#" class="hover-animate">Contact us</a></li>
+                <li><a href="#" class="hover-animate">Main dishes</a></li>
+              </ul>
+            </div>
+    
+            <!-- Dishes Section -->
+            <div>
+              <h3 class="text-sm font-bold uppercase mb-4">Dishes</h3>
+              <ul class="text-gray-600 text-sm space-y-2">
+                <li><a href="#" class="hover-animate">Fish & Veggies</a></li>
+                <li><a href="#" class="hover-animate">Tofu Chili</a></li>
+                <li><a href="#" class="hover-animate">Egg & Cucumber</a></li>
+                <li><a href="#" class="hover-animate">Lumpia w/Suace</a></li>
+              </ul>
+            </div>
+    
+            <!-- Follow Us Section -->
+            <div>
+              <h3 class="text-sm font-bold uppercase mb-4">Follow Us</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-gray-900 hover-animate">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.675 0h-21.35c-.734 0-1.325.587-1.325 1.313v21.375c0 .726.591 1.313 1.325 1.313h21.351c.733 0 1.325-.587 1.325-1.313v-21.375c0-.726-.592-1.313-1.325-1.313zm-13.548 20.813h-3.357v-9.351h3.357v9.351zm-1.678-10.605c-1.077 0-1.951-.868-1.951-1.938 0-1.071.874-1.939 1.951-1.939s1.951.868 1.951 1.939c0 1.071-.874 1.938-1.951 1.938zm13.548 10.605h-3.351v-4.939c0-1.176-.021-2.695-1.643-2.695-1.645 0-1.896 1.287-1.896 2.609v5.025h-3.354v-9.351h3.221v1.276h.046c.448-.849 1.541-1.744 3.174-1.744 3.396 0 4.022 2.237 4.022 5.144v4.675z"></path>
+                  </svg>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 hover-animate">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 .297c-6.627 0-12 5.373-12 12 0 5.302 4.387 9.671 10.125 10.533.744.135 1.02-.324 1.02-.723 0-.355-.012-1.296-.019-2.544-4.125.9-5.001-1.99-5.001-1.99-.678-1.725-1.654-2.182-1.654-2.182-1.354-.926.103-.907.103-.907 1.496.105 2.284 1.537 2.284 1.537 1.33 2.283 3.487 1.623 4.337 1.242.135-.961.521-1.623.95-1.996-3.292-.375-6.755-1.646-6.755-7.319 0-1.616.576-2.938 1.518-3.974-.153-.375-.657-1.882.147-3.919 0 0 1.235-.395 4.044 1.504 1.176-.327 2.443-.491 3.702-.498 1.259.007 2.526.171 3.704.498 2.804-1.899 4.038-1.504 4.038-1.504.807 2.037.303 3.544.151 3.919.945 1.035 1.516 2.357 1.516 3.974 0 5.684-3.468 6.94-6.768 7.309.537.465 1.014 1.383 1.014 2.786 0 2.014-.018 3.638-.018 4.134 0 .399.272.868 1.029.722 5.736-.862 10.123-5.231 10.123-10.533 0-6.627-5.373-12-12-12z"></path>
+                  </svg>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 hover-animate">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.723-.951.564-2.005.974-3.127 1.195-.897-.955-2.178-1.555-3.594-1.555-2.717 0-4.917 2.2-4.917 4.917 0 .386.044.762.127 1.124-4.083-.205-7.702-2.16-10.126-5.134-.423.725-.666 1.562-.666 2.457 0 1.697.865 3.192 2.178 4.067-.803-.026-1.56-.247-2.223-.616v.062c0 2.37 1.685 4.348 3.918 4.798-.411.111-.845.171-1.292.171-.315 0-.624-.031-.924-.088.625 1.956 2.444 3.379 4.6 3.418-1.68 1.318-3.809 2.103-6.115 2.103-.397 0-.789-.023-1.176-.068 2.179 1.394 4.768 2.207 7.548 2.207 9.054 0 14.001-7.496 14.001-13.986 0-.213-.005-.425-.015-.637.961-.695 1.797-1.562 2.457-2.549z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="mt-8 border-t pt-4 text-sm text-gray-600 flex justify-between fade-in">
+            <p>&copy; 2022 Restaurants. All Right Reserved. Designed by <span class="font-bold">Isaac</span></p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover-animate">Terms of Service</a>
+              <a href="#" class="hover-animate">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+      <script>
+        // Enable fade-in animation for the footer
+        document.addEventListener('DOMContentLoaded', () => {
+          const footer = document.querySelector('footer');
+          footer.classList.add('show');
+        });
+      </script>
+  
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+  <style></style>
+</body>
+</html>
